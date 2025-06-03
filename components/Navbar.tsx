@@ -125,7 +125,7 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button size="sm" asChild>
+            <Button asChild>
               <a href="#contact">Contact Me</a>
             </Button>
           </motion.div>
