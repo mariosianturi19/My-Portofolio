@@ -1,4 +1,3 @@
-// components/sections/About.tsx - Tambahkan bagian ini di dalam description
 "use client";
 
 import { motion } from "framer-motion";

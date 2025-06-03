@@ -1,4 +1,3 @@
-// components/sections/Contact.tsx
 "use client";
 
 import { useState, useRef } from "react";

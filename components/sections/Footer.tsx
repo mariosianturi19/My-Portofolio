@@ -1,4 +1,3 @@
-// components/sections/Footer.tsx
 "use client";
 
 import { Github, Linkedin, Mail, ArrowUp, Heart } from "lucide-react";
