@@ -1,3 +1,4 @@
+// app/layout.tsx
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -7,8 +8,8 @@ import Navbar from '@/components/Navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Togar Anthony Mario Sianturi - Frontend & Mobile Developer',
-  description: 'Portfolio website of Togar Anthony Mario Sianturi, a Frontend Developer and Mobile App Creator.',
+  title: 'Togar Anthony Mario Sianturi - Portfolio',
+  description: 'Portfolio website of Togar Anthony Mario Sianturi, a Front-End Developer and Mobile App Creator.',
 };
 
 export default function RootLayout({

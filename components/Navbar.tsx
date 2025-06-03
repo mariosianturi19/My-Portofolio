@@ -1,9 +1,12 @@
+// components/Navbar.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "@/components/ThemeToggle";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -17,10 +20,26 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Update active section based on scroll position
+      const sections = navLinks.map(link => link.href.substring(1));
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,109 +47,181 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
+    <motion.header
       className={cn(
-        "fixed top-0 left-0 w-full z-40 transition-all duration-300",
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-lg shadow-sm py-3"
-          : "bg-transparent py-5"
+          ? "glass py-4"
+          : "bg-transparent py-6"
       )}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <a
+      <div className="container-custom flex justify-between items-center">
+        <motion.a
           href="#home"
-          className="font-bold text-xl text-primary"
+          className="font-bold text-xl"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          Mario<span className="text-accent-foreground">.dev</span>
-        </a>
+          <span className="gradient-text">Mario</span>
+          <span className="text-foreground"> Sianturi</span>
+        </motion.a>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
+          {navLinks.map((link, index) => (
+            <motion.a
               key={link.name}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className={cn(
+                "text-muted-foreground hover:text-foreground transition-colors duration-200 relative",
+                activeSection === link.href.substring(1) && "text-primary"
+              )}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -2 }}
             >
               {link.name}
-            </a>
+              {activeSection === link.href.substring(1) && (
+                <motion.div
+                  className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
+                  layoutId="activeSection"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+              )}
+            </motion.a>
           ))}
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <a
+          <motion.a
             href="https://github.com/mariosianturi19"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
           >
             <Github className="h-5 w-5" />
             <span className="sr-only">GitHub</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/Togar-Anthony-Mario-Sianturi"
+          </motion.a>
+          <motion.a
+            href="https://www.linkedin.com/in/togar-anthony-mario-sianturi/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            whileHover={{ scale: 1.1, rotate: -5 }}
+            whileTap={{ scale: 0.9 }}
           >
             <Linkedin className="h-5 w-5" />
             <span className="sr-only">LinkedIn</span>
-          </a>
-          <Button size="sm" asChild>
-            <a href="#contact">Contact Me</a>
-          </Button>
+          </motion.a>
+          <ThemeToggle />
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button size="sm" asChild>
+              <a href="#contact">Contact Me</a>
+            </Button>
+          </motion.div>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden"
+        <motion.button
+          className="md:hidden p-2"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          whileTap={{ scale: 0.9 }}
         >
-          {isOpen ? <X /> : <Menu />}
-        </button>
+          <AnimatePresence mode="wait">
+            {isOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 180 }}
+                exit={{ rotate: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="h-6 w-6" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 180 }}
+                animate={{ rotate: 0 }}
+                exit={{ rotate: 180 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu className="h-6 w-6" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={cn(
-          "md:hidden fixed inset-0 bg-background z-30 transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-lg z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className="flex flex-col h-full justify-center items-center space-y-8 p-4"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              {navLinks.map((link, index) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  className="text-2xl font-medium hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              <div className="flex space-x-6 mt-8">
+                <motion.a
+                  href="https://github.com/mariosianturi19"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                >
+                  <Github className="h-6 w-6" />
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/togar-anthony-mario-sianturi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  whileHover={{ scale: 1.2, rotate: -10 }}
+                >
+                  <Linkedin className="h-6 w-6" />
+                </motion.a>
+                <ThemeToggle />
+              </div>
+            </motion.div>
+          </motion.div>
         )}
-      >
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-xl font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
-          <div className="flex space-x-6 mt-8">
-            <a
-              href="https://github.com/mariosianturi19"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            >
-              <Github className="h-6 w-6" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/Togar-Anthony-Mario-Sianturi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            >
-              <Linkedin className="h-6 w-6" />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
+      </AnimatePresence>
+    </motion.header>
   );
 }

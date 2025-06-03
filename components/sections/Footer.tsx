@@ -1,71 +1,106 @@
+// components/sections/Footer.tsx
 "use client";
 
-import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUp, Heart } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-muted/30 py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <a href="#home" className="font-bold text-xl text-primary">
-              Mario<span className="text-accent-foreground">.dev</span>
+      <div className="container-section">
+        <div className="grid md:grid-cols-3 gap-8 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <a href="#home" className="font-bold text-xl">
+              <span className="gradient-text">Mario</span>
+              <span className="text-foreground"> Sianturi</span>
             </a>
             <p className="text-muted-foreground mt-2">
-              Frontend Developer & Mobile App Creator
+              Front-End Developer & Mobile App Creator
             </p>
-          </div>
+          </motion.div>
           
-          <div className="flex flex-col items-center md:items-end">
-            <div className="flex space-x-4 mb-4">
-              <a
-                href="https://github.com/mariosianturi19"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/Togar-Anthony-Mario-Sianturi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a
-                href="mailto:19mariosianturi@gmail.com"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-                <span className="sr-only">Email</span>
-              </a>
-            </div>
-            
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Scroll to top"
+          <motion.div
+            className="flex justify-center space-x-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <motion.a
+              href="https://github.com/mariosianturi19"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary/10 hover:bg-primary/20 p-3 rounded-lg text-primary transition-colors group"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <span>Back to top</span>
-              <ArrowUp className="h-4 w-4" />
-            </button>
-          </div>
+              <Github className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="sr-only">GitHub</span>
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/togar-anthony-mario-sianturi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary/10 hover:bg-primary/20 p-3 rounded-lg text-primary transition-colors group"
+              whileHover={{ scale: 1.1, rotate: -5 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Linkedin className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="sr-only">LinkedIn</span>
+            </motion.a>
+            <motion.a
+              href="mailto:19mariosianturi@gmail.com"
+              className="bg-primary/10 hover:bg-primary/20 p-3 rounded-lg text-primary transition-colors group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Mail className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="sr-only">Email</span>
+            </motion.a>
+          </motion.div>
+          
+          <motion.div
+            className="flex justify-end"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <motion.button
+              onClick={scrollToTop}
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+              aria-label="Scroll to top"
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+            >
+              <span className="text-sm">Back to top</span>
+              <ArrowUp className="h-4 w-4 transition-transform group-hover:-translate-y-1" />
+            </motion.button>
+          </motion.div>
         </div>
         
-        <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>© {new Date().getFullYear()} Togar Anthony Mario Sianturi. All rights reserved.</p>
-          <p className="text-sm mt-2">
-            Built with Next.js, TypeScript, and Tailwind CSS
+        <motion.div
+          className="border-t border-border mt-8 pt-8 text-center text-muted-foreground"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <p className="flex items-center justify-center gap-2 text-sm">
+            © {currentYear} Togar Anthony Mario Sianturi. All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

@@ -1,3 +1,4 @@
+// components/sections/Skills.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -14,75 +15,69 @@ import { Code, Layout, Database, PaintBucket, Smartphone, Braces } from "lucide-
 
 const skillCategories = [
   {
-    title: "Frontend Development",
-    description: "Creating responsive and interactive user interfaces",
-    icon: <Layout className="h-8 w-8 text-primary" />,
+    title: "Frontend",
+    description: "Modern web interfaces",
+    icon: <Layout className="h-5 w-5 text-primary" />,
     skills: [
-      { name: "HTML & CSS", level: 95 },
-      { name: "JavaScript", level: 90 },
-      { name: "React.js", level: 85 },
-      { name: "Next.js", level: 80 },
-      { name: "Tailwind CSS", level: 85 },
+      { name: "React.js", level: 90 },
+      { name: "Next.js", level: 85 },
+      { name: "TypeScript", level: 85 },
+      { name: "Tailwind CSS", level: 90 },
     ],
   },
   {
-    title: "Mobile Development",
-    description: "Building native and cross-platform mobile applications",
-    icon: <Smartphone className="h-8 w-8 text-primary" />,
+    title: "Mobile",
+    description: "Cross-platform apps",
+    icon: <Smartphone className="h-5 w-5 text-primary" />,
     skills: [
       { name: "React Native", level: 85 },
       { name: "Kotlin", level: 80 },
-      { name: "Flutter", level: 75 },
+      { name: "Java", level: 75 },
       { name: "Android SDK", level: 75 },
-      { name: "iOS Development", level: 65 },
     ],
   },
   {
-    title: "Backend Development",
-    description: "Building APIs and server-side applications",
-    icon: <Database className="h-8 w-8 text-primary" />,
+    title: "Backend",
+    description: "Server-side development",
+    icon: <Database className="h-5 w-5 text-primary" />,
     skills: [
       { name: "Node.js", level: 80 },
-      { name: "Express.js", level: 75 },
-      { name: "Firebase", level: 85 },
-      { name: "RESTful APIs", level: 90 },
-      { name: "MongoDB", level: 70 },
+      { name: "PHP", level: 85 },
+      { name: "Laravel", level: 75 },
+      { name: "MySQL", level: 80 },
     ],
   },
   {
-    title: "UI/UX Design",
-    description: "Creating beautiful and intuitive user experiences",
-    icon: <PaintBucket className="h-8 w-8 text-primary" />,
-    skills: [
-      { name: "Figma", level: 80 },
-      { name: "Adobe XD", level: 75 },
-      { name: "Responsive Design", level: 90 },
-      { name: "Design Systems", level: 85 },
-      { name: "User Research", level: 70 },
-    ],
-  },
-  {
-    title: "Programming Languages",
-    description: "Core languages for various development tasks",
-    icon: <Code className="h-8 w-8 text-primary" />,
+    title: "Languages",
+    description: "Programming languages",
+    icon: <Code className="h-5 w-5 text-primary" />,
     skills: [
       { name: "JavaScript", level: 90 },
       { name: "TypeScript", level: 85 },
-      { name: "Python", level: 70 },
-      { name: "Kotlin", level: 80 },
-      { name: "Dart", level: 75 },
+      { name: "Python", level: 75 },
+      { name: "PHP", level: 85 },
     ],
   },
   {
-    title: "Tools & Other Skills",
-    description: "Development tools and additional technical skills",
-    icon: <Braces className="h-8 w-8 text-primary" />,
+    title: "Tools",
+    description: "Development tools",
+    icon: <Braces className="h-5 w-5 text-primary" />,
     skills: [
       { name: "Git & GitHub", level: 90 },
-      { name: "Webpack", level: 75 },
-      { name: "CI/CD", level: 70 },
-      { name: "Testing (Jest, RTL)", level: 75 },
-      { name: "Progressive Web Apps", level: 80 },
+      { name: "VS Code", level: 95 },
+      { name: "Webpack", level: 70 },
+      { name: "Docker", level: 65 },
+    ],
+  },
+  {
+    title: "Design",
+    description: "UI/UX Design",
+    icon: <PaintBucket className="h-5 w-5 text-primary" />,
+    skills: [
+      { name: "Figma", level: 80 },
+      { name: "Responsive Design", level: 90 },
+      { name: "Material Design", level: 75 },
+      { name: "Bootstrap", level: 85 },
     ],
   },
 ];
@@ -93,54 +88,102 @@ export default function Skills() {
     triggerOnce: true,
   });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section id="skills" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="section-padding bg-background">
+      <div className="container-section">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.5 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
         >
-          <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 flex items-center gap-3">
-              <span className="text-primary">03.</span> Skills & Expertise
-              <div className="h-px bg-border flex-grow ml-4"></div>
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              Skills & Technologies
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-primary">03.</span> What I Work With
             </h2>
-            
-            <p className="text-lg text-muted-foreground mb-8">
-              I've acquired a diverse set of skills throughout my journey as a developer. Here's a breakdown of my technical expertise and the technologies I work with.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A comprehensive overview of my technical skills and the tools I use to bring ideas to life.
             </p>
-          </div>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto rounded-full mt-6"></div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={itemVariants}
               >
-                <Card className="h-full">
-                  <CardHeader className="pb-2">
-                    <div className="flex items-start gap-4">
-                      <div className="mt-1">{category.icon}</div>
+                <Card className="h-full card-hover bg-card/50 backdrop-blur-sm border-border/50">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-primary/10 p-2 rounded-lg">
+                        {category.icon}
+                      </div>
                       <div>
-                        <CardTitle className="text-xl">{category.title}</CardTitle>
-                        <CardDescription>{category.description}</CardDescription>
+                        <CardTitle className="text-lg">{category.title}</CardTitle>
+                        <CardDescription className="text-sm">{category.description}</CardDescription>
                       </div>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-4">
-                      {category.skills.map((skill) => (
-                        <div key={skill.name}>
-                          <div className="flex justify-between mb-1">
+                    <div className="space-y-3">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.div
+                          key={skill.name}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                          transition={{ 
+                            duration: 0.6, 
+                            delay: (index * 0.1) + (skillIndex * 0.05) 
+                          }}
+                        >
+                          <div className="flex justify-between items-center mb-1">
                             <span className="text-sm font-medium">{skill.name}</span>
-                            <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                            <span className="text-xs text-muted-foreground">{skill.level}%</span>
                           </div>
-                          <Progress value={skill.level} className="h-2" />
-                        </div>
+                          <div className="relative">
+                            <Progress 
+                              value={skill.level} 
+                              className="h-1.5"
+                            />
+                            <motion.div
+                              className="absolute top-0 left-0 h-1.5 bg-gradient-to-r from-primary to-blue-500 rounded-full"
+                              initial={{ width: 0 }}
+                              animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
+                              transition={{ 
+                                duration: 1.5, 
+                                delay: (index * 0.1) + (skillIndex * 0.1),
+                                ease: "easeOut"
+                              }}
+                            />
+                          </div>
+                        </motion.div>
                       ))}
                     </div>
                   </CardContent>
