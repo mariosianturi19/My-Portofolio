@@ -1,8 +1,10 @@
+// components/sections/Skills.tsx
 "use client"
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Progress } from "@/components/ui/progress"
 import { Progress } from "@/components/ui/progress"
 import { Code, Layout, Database, PaintBucket, Smartphone, Braces } from "lucide-react"
 
@@ -152,16 +154,6 @@ export default function Skills() {
                           </div>
                           <div className="relative">
                             <Progress value={skill.level} className="h-1.5" />
-                            <motion.div
-                              className="absolute top-0 left-0 h-1.5 bg-gradient-to-r from-primary to-blue-500 rounded-full"
-                              initial={{ width: 0 }}
-                              animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                              transition={{
-                                duration: 1.5,
-                                delay: index * 0.1 + skillIndex * 0.1,
-                                ease: "easeOut",
-                              }}
-                            />
                           </div>
                         </motion.div>
                       ))}
@@ -176,4 +168,3 @@ export default function Skills() {
     </section>
   )
 }
-

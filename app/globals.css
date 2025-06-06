@@ -233,3 +233,12 @@
 .gradient-text {
   @apply bg-gradient-to-r from-primary via-blue-500 to-purple-600 bg-clip-text text-transparent;
 }
+
+/* Tambahan untuk mengatasi masalah build */
+.button-outline {
+  @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+}
+
+.button-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}

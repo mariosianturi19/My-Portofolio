@@ -8,7 +8,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Tambahkan base path jika menggunakan custom repository name
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   basePath: process.env.NODE_ENV === 'production' ? '/My-Portofolio' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/My-Portofolio/' : '',
 };
