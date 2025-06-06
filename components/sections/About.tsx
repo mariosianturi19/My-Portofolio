@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Badge } from "@/components/ui/badge";
-import { MoveRight, Code, Palette, Smartphone, Award } from "lucide-react";
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { Badge } from "@/components/ui/badge"
+import { MoveRight, Code, Palette, Smartphone, Award } from "lucide-react"
 
 export default function About() {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
-  });
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -17,10 +17,10 @@ export default function About() {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
+        staggerChildren: 0.2,
+      },
+    },
+  }
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -29,48 +29,52 @@ export default function About() {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
+        ease: "easeOut",
+      },
+    },
+  }
 
   const skills = [
-    "JavaScript", "TypeScript", "React", "React Native", "Next.js", 
-    "Node.js", "PHP", "Laravel", "Python", "Java", "Kotlin"
-  ];
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "React Native",
+    "Next.js",
+    "Node.js",
+    "PHP",
+    "Laravel",
+    "Python",
+    "Java",
+    "Kotlin",
+  ]
 
   const features = [
     {
       icon: <Code className="h-6 w-6" />,
       title: "Clean Code",
-      description: "Writing maintainable and scalable code"
+      description: "Writing maintainable and scalable code",
     },
     {
       icon: <Palette className="h-6 w-6" />,
       title: "Modern Design",
-      description: "Creating beautiful user interfaces"
+      description: "Creating beautiful user interfaces",
     },
     {
       icon: <Smartphone className="h-6 w-6" />,
       title: "Mobile First",
-      description: "Responsive design approach"
+      description: "Responsive design approach",
     },
     {
       icon: <Award className="h-6 w-6" />,
       title: "Bangkit Graduate",
-      description: "Google-backed program graduate"
-    }
-  ];
+      description: "Google-backed program graduate",
+    },
+  ]
 
   return (
-    <section id="about" className="section-padding bg-background">
-      <div className="container-section">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
+    <section id="about" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <motion.div ref={ref} variants={containerVariants} initial="hidden" animate={inView ? "visible" : "hidden"}>
           <motion.div variants={itemVariants} className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
               About Me
@@ -86,28 +90,28 @@ export default function About() {
               <h3 className="text-2xl md:text-3xl font-bold mb-6">
                 I'm a passionate developer who loves creating digital experiences
               </h3>
-              
+
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Hello! I'm Togar Anthony Mario Sianturi, a passionate front-end developer and mobile app creator 
-                  based in Semarang, Indonesia. I enjoy creating beautiful, functional digital experiences 
-                  that solve real-world problems.
+                  Hello! I'm Togar Anthony Mario Sianturi, a passionate front-end developer and mobile app creator based
+                  in Semarang, Indonesia. I enjoy creating beautiful, functional digital experiences that solve
+                  real-world problems.
                 </p>
                 <p>
-                  I'm a proud graduate of the <strong className="text-primary">Bangkit Academy 2024</strong>, 
-                  Google's flagship program for developing tech talents in Indonesia. Through this program, 
-                  I enhanced my skills in mobile development, machine learning, and cloud computing, 
-                  culminating in the <strong className="text-primary">Si-Bantu capstone project</strong>.
+                  I'm a proud graduate of the <strong className="text-primary">Bangkit Academy 2024</strong>, Google's
+                  flagship program for developing tech talents in Indonesia. Through this program, I enhanced my skills
+                  in mobile development, machine learning, and cloud computing, culminating in the{" "}
+                  <strong className="text-primary">Si-Bantu capstone project</strong>.
                 </p>
                 <p>
-                  With a strong foundation in modern web technologies and mobile development, 
-                  I specialize in building responsive websites and intuitive mobile applications
-                  that provide exceptional user experiences across all devices.
+                  With a strong foundation in modern web technologies and mobile development, I specialize in building
+                  responsive websites and intuitive mobile applications that provide exceptional user experiences across
+                  all devices.
                 </p>
                 <p>
-                  I'm constantly learning and exploring new technologies to stay at the forefront
-                  of digital innovation. When I'm not coding, I enjoy contributing to open-source
-                  projects and sharing knowledge with the developer community.
+                  I'm constantly learning and exploring new technologies to stay at the forefront of digital innovation.
+                  When I'm not coding, I enjoy contributing to open-source projects and sharing knowledge with the
+                  developer community.
                 </p>
               </div>
 
@@ -121,9 +125,11 @@ export default function About() {
                       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      <Badge 
+                      <Badge
                         className={`hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer ${
-                          skill === "Machine Learning" || skill === "TensorFlow" ? "bg-orange-500/10 text-orange-600 border-orange-200" : ""
+                          skill === "Machine Learning" || skill === "TensorFlow"
+                            ? "bg-orange-500/10 text-orange-600 border-orange-200"
+                            : ""
                         }`}
                       >
                         {skill}
@@ -133,12 +139,9 @@ export default function About() {
                 </div>
               </div>
 
-              <motion.div
-                variants={itemVariants}
-                className="mt-8"
-              >
-                <a 
-                  href="#projects" 
+              <motion.div variants={itemVariants} className="mt-8">
+                <a
+                  href="#projects"
                   className="inline-flex items-center text-primary hover:text-primary/80 font-medium group transition-colors"
                 >
                   Check out my work
@@ -158,11 +161,13 @@ export default function About() {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
                     <div className="flex items-start gap-4">
-                      <div className={`p-3 rounded-lg ${
-                        feature.title === "Bangkit Graduate" 
-                          ? "bg-gradient-to-r from-orange-500 to-red-500 text-white" 
-                          : "bg-primary/10 text-primary"
-                      }`}>
+                      <div
+                        className={`p-3 rounded-lg ${
+                          feature.title === "Bangkit Graduate"
+                            ? "bg-gradient-to-r from-orange-500 to-red-500 text-white"
+                            : "bg-primary/10 text-primary"
+                        }`}
+                      >
                         {feature.icon}
                       </div>
                       <div>
@@ -182,5 +187,5 @@ export default function About() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

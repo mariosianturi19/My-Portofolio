@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
-import ThemeToggle from "@/components/ThemeToggle";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { Github, Linkedin, Menu, X } from "lucide-react"
+import { cn } from "@/lib/utils"
+import ThemeToggle from "@/components/ThemeToggle"
+import { motion, AnimatePresence } from "framer-motion"
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -14,56 +14,49 @@ const navLinks = [
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
-];
+]
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      
-      // Update active section based on scroll position
-      const sections = navLinks.map(link => link.href.substring(1));
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
-    };
+      setScrolled(window.scrollY > 20)
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      // Update active section based on scroll position
+      const sections = navLinks.map((link) => link.href.substring(1))
+      const currentSection = sections.find((section) => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+
+      if (currentSection) {
+        setActiveSection(currentSection)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <motion.header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        scrolled
-          ? "glass py-4"
-          : "bg-transparent py-6"
+        scrolled ? "glass py-4" : "bg-transparent py-6",
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container-custom flex justify-between items-center">
-        <motion.a
-          href="#home"
-          className="font-bold text-xl"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex justify-between items-center">
+        <motion.a href="#home" className="font-bold text-xl" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <span className="gradient-text">Mario</span>
           <span className="text-foreground"> Sianturi</span>
         </motion.a>
@@ -76,7 +69,7 @@ export default function Navbar() {
               href={link.href}
               className={cn(
                 "text-muted-foreground hover:text-foreground transition-colors duration-200 relative",
-                activeSection === link.href.substring(1) && "text-primary"
+                activeSection === link.href.substring(1) && "text-primary",
               )}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -121,10 +114,7 @@ export default function Navbar() {
             <span className="sr-only">LinkedIn</span>
           </motion.a>
           <ThemeToggle />
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button asChild>
               <a href="#contact">Contact Me</a>
             </Button>
@@ -222,5 +212,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.header>
-  );
+  )
 }

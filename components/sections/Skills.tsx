@@ -1,16 +1,10 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Code, Layout, Database, PaintBucket, Smartphone, Braces } from "lucide-react";
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Progress } from "@/components/ui/progress"
+import { Code, Layout, Database, PaintBucket, Smartphone, Braces } from "lucide-react"
 
 const skillCategories = [
   {
@@ -79,13 +73,13 @@ const skillCategories = [
       { name: "Bootstrap", level: 85 },
     ],
   },
-];
+]
 
 export default function Skills() {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
-  });
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,10 +87,10 @@ export default function Skills() {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
-  };
+        staggerChildren: 0.1,
+      },
+    },
+  }
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -105,20 +99,15 @@ export default function Skills() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
+        ease: "easeOut",
+      },
+    },
+  }
 
   return (
-    <section id="skills" className="section-padding bg-background">
-      <div className="container-section">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
+    <section id="skills" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <motion.div ref={ref} variants={containerVariants} initial="hidden" animate={inView ? "visible" : "hidden"}>
           <motion.div variants={itemVariants} className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
               Skills & Technologies
@@ -132,18 +121,13 @@ export default function Skills() {
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto rounded-full mt-6"></div>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-7xl mx-auto">
             {skillCategories.map((category, index) => (
-              <motion.div
-                key={category.title}
-                variants={itemVariants}
-              >
+              <motion.div key={category.title} variants={itemVariants}>
                 <Card className="h-full card-hover bg-card/50 backdrop-blur-sm border-border/50">
                   <CardHeader className="pb-3">
                     <div className="flex items-center gap-3">
-                      <div className="bg-primary/10 p-2 rounded-lg">
-                        {category.icon}
-                      </div>
+                      <div className="bg-primary/10 p-2 rounded-lg">{category.icon}</div>
                       <div>
                         <CardTitle className="text-lg">{category.title}</CardTitle>
                         <CardDescription className="text-sm">{category.description}</CardDescription>
@@ -157,9 +141,9 @@ export default function Skills() {
                           key={skill.name}
                           initial={{ opacity: 0, x: -20 }}
                           animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                          transition={{ 
-                            duration: 0.6, 
-                            delay: (index * 0.1) + (skillIndex * 0.05) 
+                          transition={{
+                            duration: 0.6,
+                            delay: index * 0.1 + skillIndex * 0.05,
                           }}
                         >
                           <div className="flex justify-between items-center mb-1">
@@ -167,18 +151,15 @@ export default function Skills() {
                             <span className="text-xs text-muted-foreground">{skill.level}%</span>
                           </div>
                           <div className="relative">
-                            <Progress 
-                              value={skill.level} 
-                              className="h-1.5"
-                            />
+                            <Progress value={skill.level} className="h-1.5" />
                             <motion.div
                               className="absolute top-0 left-0 h-1.5 bg-gradient-to-r from-primary to-blue-500 rounded-full"
                               initial={{ width: 0 }}
                               animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                              transition={{ 
-                                duration: 1.5, 
-                                delay: (index * 0.1) + (skillIndex * 0.1),
-                                ease: "easeOut"
+                              transition={{
+                                duration: 1.5,
+                                delay: index * 0.1 + skillIndex * 0.1,
+                                ease: "easeOut",
                               }}
                             />
                           </div>
@@ -193,5 +174,5 @@ export default function Skills() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

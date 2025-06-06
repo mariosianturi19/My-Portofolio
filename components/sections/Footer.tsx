@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { Github, Linkedin, Mail, ArrowUp, Heart } from "lucide-react";
-import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-muted/30 py-12">
-      <div className="container-section">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="grid md:grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,11 +24,9 @@ export default function Footer() {
               <span className="gradient-text">Mario</span>
               <span className="text-foreground"> Sianturi</span>
             </a>
-            <p className="text-muted-foreground mt-2">
-              Front-End Developer & Mobile App Creator
-            </p>
+            <p className="text-muted-foreground mt-2">Front-End Developer & Mobile App Creator</p>
           </motion.div>
-          
+
           <motion.div
             className="flex justify-center space-x-4"
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +66,7 @@ export default function Footer() {
               <span className="sr-only">Email</span>
             </motion.a>
           </motion.div>
-          
+
           <motion.div
             className="flex justify-end"
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +86,7 @@ export default function Footer() {
             </motion.button>
           </motion.div>
         </div>
-        
+
         <motion.div
           className="border-t border-border mt-8 pt-8 text-center text-muted-foreground"
           initial={{ opacity: 0 }}
@@ -102,5 +100,5 @@ export default function Footer() {
         </motion.div>
       </div>
     </footer>
-  );
+  )
 }

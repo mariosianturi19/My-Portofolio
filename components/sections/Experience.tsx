@@ -1,16 +1,10 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Briefcase, GraduationCap, Award, MapPin, Calendar } from "lucide-react";
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Briefcase, GraduationCap, Award, MapPin, Calendar } from "lucide-react"
 
 // Data berdasarkan CV yang diberikan
 const experiences = [
@@ -29,7 +23,7 @@ const experiences = [
     id: 2,
     title: "Front-End Developer",
     company: "PT. Telekomunikasi Selular",
-    location: "Jakarta, Indonesia", 
+    location: "Jakarta, Indonesia",
     period: "Jul 2024 - Aug 2024",
     type: "Internship",
     description: "Contributed to web development projects using modern frameworks and best practices.",
@@ -47,19 +41,28 @@ const experiences = [
     skills: ["Teaching", "Java", "Programming", "Mentoring"],
     category: "work",
   },
-    {
+  {
     id: 4,
     title: "Mobile Development Cohort",
     company: "Bangkit Academy by Google, Tokopedia, Gojek & Traveloka",
     location: "Remote, Indonesia",
     period: "Feb 2024 - Jul 2024",
     type: "Bootcamp",
-    description: "Intensive 6-month program focusing on mobile development, machine learning, and cloud computing. Completed capstone project Si-Bantu with team collaboration.",
-    skills: ["Android Development", "Kotlin", "Machine Learning", "TensorFlow", "Firebase", "Google Cloud Platform", "Team Collaboration"],
+    description:
+      "Intensive 6-month program focusing on mobile development, machine learning, and cloud computing. Completed capstone project Si-Bantu with team collaboration.",
+    skills: [
+      "Android Development",
+      "Kotlin",
+      "Machine Learning",
+      "TensorFlow",
+      "Firebase",
+      "Google Cloud Platform",
+      "Team Collaboration",
+    ],
     category: "education",
     isBangkit: true,
   },
-];
+]
 
 const education = [
   {
@@ -84,7 +87,7 @@ const education = [
     skills: ["Mathematics", "Physics", "Chemistry"],
     category: "education",
   },
-];
+]
 
 const certificates = [
   { name: "Belajar Fundamental Aplikasi Android", issuer: "Dicoding Indonesia", year: "2023" },
@@ -92,13 +95,13 @@ const certificates = [
   { name: "CCNAv7: Introduction to Networks", issuer: "Cisco Networking Academy", year: "2023" },
   { name: "Belajar Dasar AI", issuer: "Dicoding Indonesia", year: "2023" },
   { name: "Database Design Learner", issuer: "Oracle Academy", year: "2023" },
-];
+]
 
 export default function Experience() {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
-  });
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -106,10 +109,10 @@ export default function Experience() {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
-  };
+        staggerChildren: 0.1,
+      },
+    },
+  }
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -118,20 +121,15 @@ export default function Experience() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
+        ease: "easeOut",
+      },
+    },
+  }
 
   return (
-    <section id="experience" className="section-padding bg-muted/30">
-      <div className="container-section">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
+    <section id="experience" className="py-16 md:py-24 bg-muted/30">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <motion.div ref={ref} variants={containerVariants} initial="hidden" animate={inView ? "visible" : "hidden"}>
           <motion.div variants={itemVariants} className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
               Background
@@ -145,7 +143,7 @@ export default function Experience() {
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto rounded-full mt-6"></div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
             {/* Work Experience */}
             <motion.div variants={itemVariants}>
               <div className="flex items-center gap-3 mb-8">
@@ -168,13 +166,9 @@ export default function Experience() {
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <CardTitle className="text-lg">{exp.title}</CardTitle>
-                            <CardDescription className="font-medium text-foreground/80">
-                              {exp.company}
-                            </CardDescription>
+                            <CardDescription className="font-medium text-foreground/80">{exp.company}</CardDescription>
                           </div>
-                          <Badge className="text-xs">
-                            {exp.type}
-                          </Badge>
+                          <Badge className="text-xs">{exp.type}</Badge>
                         </div>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
@@ -188,9 +182,7 @@ export default function Experience() {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-                          {exp.description}
-                        </p>
+                        <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{exp.description}</p>
                         <div className="flex flex-wrap gap-1">
                           {exp.skills.map((skill) => (
                             <Badge key={skill} className="text-xs">
@@ -227,13 +219,9 @@ export default function Experience() {
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <CardTitle className="text-lg">{edu.title}</CardTitle>
-                            <CardDescription className="font-medium text-foreground/80">
-                              {edu.company}
-                            </CardDescription>
+                            <CardDescription className="font-medium text-foreground/80">{edu.company}</CardDescription>
                           </div>
-                          <Badge className="text-xs">
-                            {edu.type}
-                          </Badge>
+                          <Badge className="text-xs">{edu.type}</Badge>
                         </div>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
@@ -247,9 +235,7 @@ export default function Experience() {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-                          {edu.description}
-                        </p>
+                        <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{edu.description}</p>
                         <div className="flex flex-wrap gap-1">
                           {edu.skills.map((skill) => (
                             <Badge key={skill} className="text-xs">
@@ -285,9 +271,7 @@ export default function Experience() {
                           <h4 className="font-medium text-sm leading-tight mb-1">{cert.name}</h4>
                           <p className="text-xs text-muted-foreground">{cert.issuer}</p>
                         </div>
-                        <Badge className="text-xs ml-2">
-                          {cert.year}
-                        </Badge>
+                        <Badge className="text-xs ml-2">{cert.year}</Badge>
                       </div>
                     </Card>
                   </motion.div>
@@ -298,5 +282,5 @@ export default function Experience() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
