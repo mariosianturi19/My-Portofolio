@@ -11,9 +11,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Comment basePath & assetPrefix untuk Vercel
-  // basePath: process.env.NODE_ENV === 'production' ? '/My-Portofolio' : '',
-  // assetPrefix: process.env.NODE_ENV === 'production' ? '/My-Portofolio/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/Portofolio-Website' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Portofolio-Website/' : '',
 };
 
 module.exports = nextConfig;
