@@ -44,7 +44,7 @@ const projects: Project[] = [
     image:
       "/Emergency.jpg",
     tags: ["Next.js", "TypeScript", "React", "CSS"],
-    github: "#",
+    github: "https://github.com/mariosianturi19/SIGAP-UNDIP",
     category: "Web",
     featured: true,
   },
