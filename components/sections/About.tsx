@@ -93,28 +93,35 @@ export default function About() {
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Hello! I'm Togar Anthony Mario Sianturi, a passionate{" "}
+                  Hello! I&apos;m Togar Anthony Mario Sianturi, a passionate{" "}
                   <strong className="text-primary">frontend developer</strong> based in Semarang, Indonesia. I specialize
                   in creating beautiful, responsive, and user-friendly web applications using modern JavaScript frameworks
                   and libraries.
                 </p>
                 <p>
-                  I'm a proud graduate of the <strong className="text-primary">Bangkit Academy 2024</strong>, Google's
+                  I&apos;m a proud graduate of the <strong className="text-primary">Bangkit Academy 2024</strong>, Google&apos;s
                   flagship program for developing tech talents in Indonesia. Through this program, I enhanced my skills
                   in{" "}
                   <strong className="text-primary">Mobile Development</strong> and collaborated on innovative projects
                   that solve real-world problems.
                 </p>
                 <p>
+                  Beyond my technical skills, I&apos;m actively involved in the tech community as a member of{" "}
+                  <strong className="text-primary">Google Developer Student Clubs (GDSC)</strong> and{" "}
+                  <strong className="text-primary">Computer Engineering Research Club (CERC)</strong> at Diponegoro University.
+                  These experiences have strengthened my collaboration skills and deepened my understanding of Google Technologies
+                  and software development practices.
+                </p>
+                <p>
                   My expertise lies in{" "}
                   <strong className="text-primary">React, Next.js, and TypeScript</strong>, with a strong focus on
-                  creating seamless user experiences and pixel-perfect designs. I'm passionate about writing clean,
+                  creating seamless user experiences and pixel-perfect designs. I&apos;m passionate about writing clean,
                   maintainable code and staying up-to-date with the latest frontend technologies and best practices.
                 </p>
                 <p>
                   You can explore my projects and contributions on{" "}
                   <strong className="text-primary">GitHub</strong>, where I share my work and collaborate with the
-                  developer community.
+                  developer community. I believe in continuous learning and knowledge sharing to grow together as developers.
                 </p>
               </div>
 
