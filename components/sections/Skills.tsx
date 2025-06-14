@@ -1,11 +1,9 @@
-// components/sections/Skills.tsx
 "use client"
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-// import { Progress } from "@/components/ui/progress"
-import { Progress } from "@/components/ui/progress"
+// import { Progress } from "@/components/ui/progress"  // COMMENT INI
 import { Code, Layout, Database, PaintBucket, Smartphone, Braces } from "lucide-react"
 
 const skillCategories = [
@@ -141,7 +139,13 @@ export default function Skills() {
                             <span className="text-xs text-muted-foreground">{skill.level}%</span>
                           </div>
                           <div className="relative">
-                            <Progress value={skill.level} className="h-1.5" />
+                            {/* <Progress value={skill.level} className="h-1.5" /> */}
+                            <div className="w-full bg-secondary rounded-full h-1.5">
+                              <div 
+                                className="bg-primary h-1.5 rounded-full transition-all" 
+                                style={{ width: `${skill.level}%` }}
+                              />
+                            </div>
                           </div>
                         </motion.div>
                       ))}
