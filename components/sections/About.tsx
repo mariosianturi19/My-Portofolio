@@ -128,19 +128,32 @@ export default function About() {
                       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      <Badge
-                        className={`hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer ${
-                          skill === "React" || skill === "Next.js" || skill === "TypeScript"
-                            ? "bg-primary/20 text-primary border-primary/30"
-                            : ""
-                        }`}
-                      >
+                      <Badge className="hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer">
                         {skill}
                       </Badge>
                     </motion.div>
                   ))}
                 </div>
               </div>
+
+              <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center text-primary hover:text-primary/80 font-medium group transition-colors"
+                >
+                  Check out my work
+                  <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <a
+                  href="https://github.com/mariosianturi19"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-muted-foreground hover:text-primary font-medium group transition-colors"
+                >
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub Profile
+                </a>
+              </motion.div>
             </motion.div>
 
             <motion.div variants={itemVariants} className="relative">

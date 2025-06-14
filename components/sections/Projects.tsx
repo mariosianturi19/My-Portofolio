@@ -42,7 +42,7 @@ const projects: Project[] = [
     title: "SIGAP UNDIP",
     description: "SIGAP UNDIP is an innovative digital platform designed to enhance emergency response and safety systems within Diponegoro University environment.",
     image:
-      "/Emergency.jpg",
+      "https://images.unsplash.com/photo-1587745416684-47953f16f02f?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["Next.js", "TypeScript", "React", "CSS"],
     github: "https://github.com/mariosianturi19/SIGAP-UNDIP",
     category: "Web",
@@ -75,7 +75,7 @@ const projects: Project[] = [
     title: "Endorsement Website",
     description: "Social media influencer endorsement platform with payment integration and user management.",
     image:
-      "/Endorsment.jpg",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     github: "https://github.com/mariosianturi19/Endorsement_Website",
     category: "Web",
