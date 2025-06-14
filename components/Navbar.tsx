@@ -57,8 +57,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex justify-between items-center">
         <motion.a href="#home" className="font-bold text-xl" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <span className="gradient-text">Mario</span>
-          <span className="text-foreground"> Sianturi</span>
+          <span className="text-foreground">Mario Sianturi</span>
         </motion.a>
 
         {/* Desktop Menu */}

@@ -390,10 +390,6 @@ export default function Contact() {
                       </div>
                     </Button>
                   </motion.div>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    By sending this message, you agree that I may contact you regarding your inquiry.
-                  </p>
                 </form>
               </div>
             </motion.div>

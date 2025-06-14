@@ -15,8 +15,8 @@ const skillCategories = [
     icon: <Layout className="h-5 w-5 text-primary" />,
     skills: [
       { name: "React.js", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "TypeScript", level: 85 },
+      { name: "Next.js", level: 90 },
+      { name: "TypeScript", level: 90 },
       { name: "Tailwind CSS", level: 90 },
     ],
   },
@@ -32,23 +32,12 @@ const skillCategories = [
     ],
   },
   {
-    title: "Backend",
-    description: "Server-side development",
-    icon: <Database className="h-5 w-5 text-primary" />,
-    skills: [
-      { name: "Node.js", level: 80 },
-      { name: "PHP", level: 85 },
-      { name: "Laravel", level: 75 },
-      { name: "MySQL", level: 80 },
-    ],
-  },
-  {
     title: "Languages",
     description: "Programming languages",
     icon: <Code className="h-5 w-5 text-primary" />,
     skills: [
       { name: "JavaScript", level: 90 },
-      { name: "TypeScript", level: 85 },
+      { name: "TypeScript", level: 90 },
       { name: "Python", level: 75 },
       { name: "PHP", level: 85 },
     ],
@@ -58,7 +47,7 @@ const skillCategories = [
     description: "Development tools",
     icon: <Braces className="h-5 w-5 text-primary" />,
     skills: [
-      { name: "Git & GitHub", level: 90 },
+      { name: "Git & GitHub", level: 95 },
       { name: "VS Code", level: 95 },
       { name: "Webpack", level: 70 },
       { name: "Docker", level: 65 },
@@ -69,9 +58,8 @@ const skillCategories = [
     description: "UI/UX Design",
     icon: <PaintBucket className="h-5 w-5 text-primary" />,
     skills: [
-      { name: "Figma", level: 80 },
       { name: "Responsive Design", level: 90 },
-      { name: "Material Design", level: 75 },
+      { name: "Material Design", level: 85 },
       { name: "Bootstrap", level: 85 },
     ],
   },

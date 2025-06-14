@@ -29,7 +29,7 @@ const projects: Project[] = [
     description:
       "Bangkit Capstone 2024 - Smart assistant mobile application for helping people with daily tasks using machine learning and AI technologies.",
     image:
-      "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["Android", "Machine Learning", "TensorFlow", "Kotlin", "Firebase", "AI"],
     github: "https://github.com/indra1222/Bangkitcapstone",
     category: "Mobile",
@@ -40,11 +40,11 @@ const projects: Project[] = [
   {
     id: 2,
     title: "SIGAP UNDIP",
-    description: "Modern academic information system for Diponegoro University built with Next.js and TypeScript.",
+    description: "SIGAP UNDIP is an innovative digital platform designed to enhance emergency response and safety systems within Diponegoro University environment.",
     image:
-      "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "/Emergency.jpg",
     tags: ["Next.js", "TypeScript", "React", "CSS"],
-    github: "https://github.com/mariosianturi19/SIGAP-UNDIP",
+    github: "#",
     category: "Web",
     featured: true,
   },
@@ -53,7 +53,7 @@ const projects: Project[] = [
     title: "NBA App",
     description: "React Native mobile application for NBA statistics and team information with modern UI.",
     image:
-      "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["React Native", "JavaScript", "CSS"],
     github: "https://github.com/mariosianturi19/NBA-App",
     category: "Mobile",
@@ -64,7 +64,7 @@ const projects: Project[] = [
     title: "Klik Digital Dashboard",
     description: "Professional dashboard website for PT. Klik Digital Sinergi with advanced analytics.",
     image:
-      "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["Next.js", "TypeScript", "CSS", "JavaScript"],
     github: "#", // Assuming "#" means no public link or private
     category: "Web",
@@ -75,7 +75,7 @@ const projects: Project[] = [
     title: "Endorsement Website",
     description: "Social media influencer endorsement platform with payment integration and user management.",
     image:
-      "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "/Endorsment.jpg",
     tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     github: "https://github.com/mariosianturi19/Endorsement_Website",
     category: "Web",
@@ -85,7 +85,7 @@ const projects: Project[] = [
     title: "Basketball Court Booking",
     description: "Online basketball court booking system with real-time availability and payment processing.",
     image:
-      "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["PHP", "HTML", "CSS", "JavaScript", "MySQL"],
     github: "https://github.com/mariosianturi19/Booking-Basketball-Court",
     category: "Web",
@@ -95,7 +95,7 @@ const projects: Project[] = [
     title: "Outlet Recognition Website",
     description: "Website for outlet recognition using computer vision and machine learning algorithms.",
     image:
-      "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["Node.js", "HTML", "CSS", "JavaScript", "Computer Vision"],
     github: "#",
     category: "Web",
@@ -106,7 +106,7 @@ const projects: Project[] = [
     description:
       "Python implementation of numerical interpolation algorithms for data science and computational mathematics.",
     image:
-      "https://images.pexels.com/photos/374016/pexels-photo-374016.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1",
+      "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&h=600&q=80",
     tags: ["Python", "Jupyter", "NumPy", "SciPy", "Mathematics"],
     github: "https://github.com/mariosianturi19/Implementasi-Interpolasi",
     category: "Algorithm",
@@ -187,10 +187,6 @@ export default function Projects() {
               <motion.div
                 key={project.id}
                 variants={itemVariants}
-                // The className logic for featured projects seems a bit unusual for lg screens,
-                // but I'm keeping it as per the original code.
-                // Featured: md:col-span-2 (takes full width on 2-col grid), lg:col-span-1 (takes 1/3 on 3-col grid)
-                // Non-Featured: implicitly col-span-1 on all grids.
                 className={project.featured ? "md:col-span-2 lg:col-span-1" : ""}
               >
                 <Card className="h-full group overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -300,7 +296,7 @@ export default function Projects() {
 
           <motion.div variants={itemVariants} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             <div className="text-center p-4 bg-card/50 rounded-lg shadow">
-              <div className="text-3xl font-bold text-primary">8+</div>
+              <div className="text-3xl font-bold text-primary">10+</div>
               <div className="text-sm text-muted-foreground mt-1">Total Projects</div>
             </div>
             <div className="text-center p-4 bg-card/50 rounded-lg shadow">

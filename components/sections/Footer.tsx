@@ -21,8 +21,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <a href="#home" className="font-bold text-xl">
-              <span className="gradient-text">Mario</span>
-              <span className="text-foreground"> Sianturi</span>
+              <span className="text-foreground">Mario Sianturi</span>
             </a>
             <p className="text-muted-foreground mt-2">Front-End Developer & Mobile App Creator</p>
           </motion.div>

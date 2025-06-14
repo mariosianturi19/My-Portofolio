@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Badge } from "@/components/ui/badge"
-import { MoveRight, Code, Palette, Smartphone, Award } from "lucide-react"
+import { MoveRight, Code, Palette, Github, Award } from "lucide-react"
 
 export default function About() {
   const { ref, inView } = useInView({
@@ -38,36 +38,36 @@ export default function About() {
     "JavaScript",
     "TypeScript",
     "React",
-    "React Native",
     "Next.js",
-    "Node.js",
-    "PHP",
-    "Laravel",
-    "Python",
-    "Java",
-    "Kotlin",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Framer Motion",
+    "React Native",
+    "Git",
+    "Figma",
   ]
 
   const features = [
     {
       icon: <Code className="h-6 w-6" />,
-      title: "Clean Code",
-      description: "Writing maintainable and scalable code",
+      title: "Frontend Development",
+      description: "Building modern web applications with React & Next.js",
     },
     {
       icon: <Palette className="h-6 w-6" />,
-      title: "Modern Design",
-      description: "Creating beautiful user interfaces",
+      title: "UI/UX Design",
+      description: "Creating beautiful and intuitive user interfaces",
     },
     {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "Mobile First",
-      description: "Responsive design approach",
+      icon: <Github className="h-6 w-6" />,
+      title: "Open Source",
+      description: "Contributing to projects and sharing code on GitHub",
     },
     {
       icon: <Award className="h-6 w-6" />,
       title: "Bangkit Graduate",
-      description: "Google-backed program graduate",
+      description: "Google-backed program graduate specializing in Mobile Development",
     },
   ]
 
@@ -88,35 +88,38 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">
-                I'm a passionate developer who loves creating digital experiences
+                I'm a passionate frontend developer creating amazing web experiences
               </h3>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Hello! I'm Togar Anthony Mario Sianturi, a passionate front-end developer and mobile app creator based
-                  in Semarang, Indonesia. I enjoy creating beautiful, functional digital experiences that solve
-                  real-world problems.
+                  Hello! I'm Togar Anthony Mario Sianturi, a passionate{" "}
+                  <strong className="text-primary">frontend developer</strong> based in Semarang, Indonesia. I specialize
+                  in creating beautiful, responsive, and user-friendly web applications using modern JavaScript frameworks
+                  and libraries.
                 </p>
                 <p>
                   I'm a proud graduate of the <strong className="text-primary">Bangkit Academy 2024</strong>, Google's
                   flagship program for developing tech talents in Indonesia. Through this program, I enhanced my skills
-                  in mobile development, machine learning, and cloud computing, culminating in the{" "}
-                  <strong className="text-primary">Si-Bantu capstone project</strong>.
+                  in{" "}
+                  <strong className="text-primary">Mobile Development</strong> and collaborated on innovative projects
+                  that solve real-world problems.
                 </p>
                 <p>
-                  With a strong foundation in modern web technologies and mobile development, I specialize in building
-                  responsive websites and intuitive mobile applications that provide exceptional user experiences across
-                  all devices.
+                  My expertise lies in{" "}
+                  <strong className="text-primary">React, Next.js, and TypeScript</strong>, with a strong focus on
+                  creating seamless user experiences and pixel-perfect designs. I'm passionate about writing clean,
+                  maintainable code and staying up-to-date with the latest frontend technologies and best practices.
                 </p>
                 <p>
-                  I'm constantly learning and exploring new technologies to stay at the forefront of digital innovation.
-                  When I'm not coding, I enjoy contributing to open-source projects and sharing knowledge with the
+                  You can explore my projects and contributions on{" "}
+                  <strong className="text-primary">GitHub</strong>, where I share my work and collaborate with the
                   developer community.
                 </p>
               </div>
 
               <div className="mt-8">
-                <h4 className="text-xl font-semibold mb-4">Technologies I work with:</h4>
+                <h4 className="text-xl font-semibold mb-4">Frontend Technologies I use:</h4>
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill, index) => (
                     <motion.div
@@ -127,8 +130,8 @@ export default function About() {
                     >
                       <Badge
                         className={`hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer ${
-                          skill === "Machine Learning" || skill === "TensorFlow"
-                            ? "bg-orange-500/10 text-orange-600 border-orange-200"
+                          skill === "React" || skill === "Next.js" || skill === "TypeScript"
+                            ? "bg-primary/20 text-primary border-primary/30"
                             : ""
                         }`}
                       >
@@ -138,16 +141,6 @@ export default function About() {
                   ))}
                 </div>
               </div>
-
-              <motion.div variants={itemVariants} className="mt-8">
-                <a
-                  href="#projects"
-                  className="inline-flex items-center text-primary hover:text-primary/80 font-medium group transition-colors"
-                >
-                  Check out my work
-                  <MoveRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </motion.div>
             </motion.div>
 
             <motion.div variants={itemVariants} className="relative">
@@ -165,6 +158,8 @@ export default function About() {
                         className={`p-3 rounded-lg ${
                           feature.title === "Bangkit Graduate"
                             ? "bg-gradient-to-r from-orange-500 to-red-500 text-white"
+                            : feature.title === "Open Source"
+                            ? "bg-gradient-to-r from-gray-700 to-gray-900 text-white"
                             : "bg-primary/10 text-primary"
                         }`}
                       >
